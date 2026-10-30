@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1769aa">
+<meta name="description" content="Media Pembelajaran Interaktif Matematika Kelas I SD Negeri 8 Kodeoha: Ayo Membilang 1 sampai 10.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Petualangan Angka 1–10 | SD Negeri 8 Kodeoha</title>
+<style>
+:root{--blue:#1769aa;--navy:#124b7a;--yellow:#ffd45c;--green:#23834b;--pink:#ff7d9b;--ink:#18324b;--paper:#f4f9ff}
+*{box-sizing:border-box}body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#dff2ff,#fff5d7);min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;border-radius:16px;padding:13px 18px;font-weight:800;transition:.15s;box-shadow:0 4px 0 #00000018}
+button:active{transform:translateY(3px);box-shadow:0 1px 0 #00000018}button:focus-visible{outline:4px solid #ffb703}
+.primary{background:var(--blue);color:white}.sun{background:var(--yellow);color:#654500}.green{background:#bdecc9;color:#14572d}.pink{background:#ffd1dc;color:#8a2942}.light{background:white;color:var(--blue);border:2px solid #c9e2f8}
+header{background:var(--blue);color:white;padding:12px 4vw;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 4px 12px #1235}
+.brand{font-weight:900;font-size:clamp(16px,2.5vw,23px)}.top-actions{display:flex;gap:8px}.top-actions button{padding:9px 12px}
+main{max-width:1050px;margin:22px auto;padding:0 16px 35px}.screen{display:none;background:#ffffffed;border:3px solid #fff;border-radius:28px;padding:clamp(18px,4vw,36px);box-shadow:0 14px 35px #24527a20;min-height:550px}.screen.active{display:block}
+h1,h2,h3{margin:8px 0 14px;line-height:1.15}h1{font-size:clamp(30px,6vw,56px);color:var(--blue)}h2{font-size:clamp(25px,4vw,36px);color:var(--blue)}p{font-size:18px;line-height:1.55}.center{text-align:center}.muted{color:#55718a}.hero{background:linear-gradient(135deg,#bde7ff,#fff0b7);border-radius:24px;padding:24px;text-align:center}
+.big-numbers{font-size:clamp(30px,7vw,66px);letter-spacing:5px;margin:20px 0}.mascot{font-size:clamp(54px,10vw,95px);margin:8px}.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}.menu-card{min-height:130px;font-size:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}.menu-card span{font-size:40px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}.number-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}.num{background:#e7f3ff;border:3px solid #b9ddfa;border-radius:18px;padding:15px 5px;text-align:center;font-size:clamp(25px,5vw,40px);font-weight:900;color:var(--blue)}
+.num.active{background:var(--yellow);border-color:#e7a900;transform:scale(1.05)}.object-row{font-size:clamp(27px,6vw,48px);line-height:1.8;overflow-wrap:anywhere}
+.lesson-box{background:#f0f8ff;border-radius:20px;padding:18px;margin:14px 0}.lesson-box.forward{background:#e9f8ee}.lesson-box.backward{background:#fff2e8}
+.progress{height:12px;background:#e3edf5;border-radius:99px;overflow:hidden;margin:12px 0}.progress div{height:100%;background:#2aa65a;width:0;transition:.2s}
+.feedback{font-weight:900;font-size:20px;min-height:32px;margin:10px}.choices{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0}.choices button{min-width:82px;font-size:24px}
+.sim-card{border-radius:22px;padding:20px;background:#fff8df;text-align:center;margin:16px 0}.counter{font-size:clamp(50px,10vw,90px);font-weight:900;color:var(--blue)}
+footer{text-align:center;color:#55718a;padding:12px;font-size:14px}
+.hidden{display:none!important}.pill{display:inline-block;background:#e5f3ff;color:#165b91;padding:7px 12px;border-radius:99px;font-weight:800}
+@media(max-width:600px){.menu-grid{grid-template-columns:1fr}.screen{min-height:0}.number-track{gap:6px}.num{padding:10px 2px}.top-actions button{font-size:12px;padding:8px}}
+</style>
+</head>
+<body>
+<header><div class="brand">🌈 PETUALANGAN ANGKA 1–10</div><div class="top-actions"><button class="light" id="soundBtn" aria-label="Suara">🔊 Suara</button><button class="light" onclick="go('home')">⌂ Beranda</button></div></header>
+<main>
+<section id="splash" class="screen active">
+ <div class="hero">
+  <div class="mascot">👧🏻 👦🏻</div><div class="big-numbers">1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣</div>
+  <h1>AYO MEMBILANG 1–10!</h1><h2>Hitung Maju dan Hitung Mundur</h2>
+  <p>Belajar Matematika jadi menyenangkan. Yuk, berpetualang bersama angka!</p>
+  <p><b>Kelas I • Fase A</b><br>SD NEGERI 8 KODEOHA</p>
+  <button class="primary" style="font-size:22px;padding:17px 34px" onclick="go('home')">MULAI PETUALANGAN 🚀</button>
+ </div>
+</section>
+<section id="home" class="screen">
+ <div class="center"><span class="pill">KELAS I SD • MATEMATIKA</span><h1>Halo, Anak Hebat! 👋</h1><p>Pilih kegiatan yang ingin kamu lakukan.</p></div>
+ <div class="menu-grid">
+  <button class="menu-card light" onclick="go('materi')"><span>📚</span>Materi</button>
+  <button class="menu-card green" onclick="go('simulasi')"><span>🍎</span>Simulasi</button>
+  <button class="menu-card sun" onclick="startQuiz()"><span>🏆</span>Kuis</button>
+  <button class="menu-card pink" onclick="go('profil')"><span>👩‍🏫</span>Profil</button>
+ </div>
+ <div class="hero"><h3>🎯 Tujuan Belajar</h3><p>Menyebutkan bilangan 1–10, menghitung maju dari 1 ke 10, menghitung mundur dari 10 ke 1, dan menggunakannya dalam kehidupan sehari-hari.</p></div>
+</section>
+<section id="materi" class="screen">
+ <h2>📚 Ayo Mengenal Angka!</h2><p>Tekan setiap angka untuk mendengar namanya.</p>
+ <div class="number-track" id="numberTrack"></div>
+ <div class="lesson-box forward center"><h2>➡️ Hitung Maju</h2><p>Hitung maju berarti menyebut bilangan dari kecil ke besar. Setiap langkah bertambah satu.</p><div class="big-numbers">1 → 2 → 3 → 4 → 5<br>6 → 7 → 8 → 9 → 10</div><button class="green" onclick="playSequence(1,10)">▶ Dengarkan Hitung Maju</button></div>
+ <div class="lesson-box backward center"><h2>⬅️ Hitung Mundur</h2><p>Hitung mundur berarti menyebut bilangan dari besar ke kecil. Setiap langkah berkurang satu.</p><div class="big-numbers">10 → 9 → 8 → 7 → 6<br>5 → 4 → 3 → 2 → 1</div><button class="sun" onclick="playSequence(10,1)">▶ Dengarkan Hitung Mundur</button></div>
+ <div class="row"><button class="primary" onclick="go('simulasi')">Lanjut ke Simulasi ➜</button></div>
+</section>
+<section id="simulasi" class="screen">
+ <h2>🎮 Ayo Bermain dan Menghitung!</h2><p>Pilih permainan. Perhatikan apa yang terjadi pada jumlah benda.</p>
+ <div class="row"><button class="green" onclick="setSim('apple')">🍎 Apel Bertambah</button><button class="sun" onclick="setSim('candy')">🍬 Permen Berkurang</button></div>
+ <div id="simArea" class="sim-card"><h3>🍎 Simulasi Hitung Maju</h3><p>Siti memiliki 1 apel. Ibu memberi satu apel lagi.</p><div class="object-row" id="objects">🍎</div><div class="counter" id="counter">1</div><p id="simCaption">Jumlah apel Siti sekarang 1.</p><div class="row"><button class="primary" id="changeBtn" onclick="changeCount()">➕ TAMBAH 1</button><button class="light" onclick="resetSim()">↻ Ulangi</button><button class="light" onclick="speakCount()">🔊 Dengarkan</button></div><div class="feedback" id="simFeedback"></div></div>
+ <div class="lesson-box"><h3>🧠 Ayo Berpikir!</h3><p>Ada 5 anak sedang antre. Kemudian datang 2 anak lagi. Cara menghitung yang tepat adalah...</p><div class="choices"><button class="light" onclick="critical('mundur')">Hitung mundur</button><button class="light" onclick="critical('maju')">Hitung maju</button></div><div id="criticalFeedback" class="feedback"></div></div>
+ <div class="row"><button class="primary" onclick="startQuiz()">Siap Kuis? ➜</button></div>
+</section>
+<section id="kuis" class="screen">
+ <div class="row" style="justify-content:space-between"><span class="pill" id="qLabel">SOAL 1 DARI 3</span><span class="pill">Skor: <b id="liveScore">0</b></span></div>
+ <div class="progress"><div id="progressBar"></div></div>
+ <h2 class="center">🏆 Kuis Pintar</h2><div id="questionArea" class="sim-card"></div><div id="quizFeedback" class="feedback center"></div>
+ <div class="row"><button class="primary hidden" id="nextBtn" onclick="nextQuestion()">Soal Berikutnya ➜</button></div>
+</section>
+<section id="hasil" class="screen">
+ <div class="hero center"><div class="mascot">🏆 ⭐ 🎉</div><h1>Kuis Selesai!</h1><p>Skor akhir kamu:</p><div class="counter" id="finalScore">0</div><h2 id="resultText">Hebat!</h2><p id="resultDetail"></p><div class="row"><button class="primary" onclick="startQuiz()">↻ Ulangi Kuis</button><button class="light" onclick="go('home')">⌂ Menu Utama</button></div></div>
+</section>
+<section id="profil" class="screen">
+ <div class="center"><div class="mascot">🏫 👩‍🏫</div><h1>Profil MPI</h1><div class="lesson-box"><p><b>Nama Media:</b> Petualangan Angka 1–10</p><p><b>Satuan Pendidikan:</b> SD Negeri 8 Kodeoha</p><p><b>Mata Pelajaran:</b> Matematika</p><p><b>Kelas/Fase:</b> I / A</p><p><b>Kurikulum:</b> Kurikulum Merdeka</p><p><b>Materi:</b> Ayo Membilang 1 sampai 10</p><p><b>Fokus:</b> Hitung Maju dan Hitung Mundur</p><p><b>Pengembang:</b> Guru Kelas I</p></div><button class="primary" onclick="go('home')">Kembali ke Menu</button></div>
+</section>
+</main>
+<footer>Media Pembelajaran Interaktif • SD Negeri 8 Kodeoha • Dapat digunakan online dan setelah tersimpan di perangkat</footer>
+<script>
+const names=['satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan','sepuluh'];
+let soundOn=true,simType='apple',count=1,question=0,correct=0,answered=false;
+function go(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function speak(text){if(!soundOn||!('speechSynthesis'in window))return; speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='id-ID';u.rate=.85;speechSynthesis.speak(u)}
+document.getElementById('soundBtn').onclick=()=>{soundOn=!soundOn;document.getElementById('soundBtn').textContent=soundOn?'🔊 Suara':'🔇 Suara';if(!soundOn&&'speechSynthesis'in window)speechSynthesis.cancel()};
+const track=document.getElementById('numberTrack');for(let n=1;n<=10;n++){let b=document.createElement('button');b.className='num';b.textContent=n;b.onclick=()=>speak(names[n-1]);track.appendChild(b)}
+function playSequence(a,b){let step=a<=b?1:-1;let i=0;function next(){if(i>=10)return;speak(names[a-1]);a+=step;i++;if(i<10)setTimeout(next,1050)}next()}
+function setSim(type){simType=type;resetSim()}
+function resetSim(){count=simType==='apple'?1:10;updateSim();document.getElementById('simFeedback').textContent=''}
+function updateSim(){let fruit=simType==='apple'?'🍎':'🍬';document.getElementById('objects').textContent=Array(count).fill(fruit).join(' ');document.getElementById('counter').textContent=count;document.getElementById('simCaption').textContent=(simType==='apple'?'Jumlah apel Siti sekarang ':'Sisa permen Budi sekarang ')+count+'.';document.getElementById('changeBtn').textContent=simType==='apple'?'➕ TAMBAH 1':'➖ BAGIKAN 1';document.querySelector('#simArea h3').textContent=simType==='apple'?'🍎 Simulasi Hitung Maju':'🍬 Simulasi Hitung Mundur';document.querySelector('#simArea p').textContent=simType==='apple'?'Siti memiliki 1 apel. Ibu memberi satu apel lagi.':'Budi memiliki 10 permen. Ia membagikan satu permen.'}
+function changeCount(){if(simType==='apple'&&count<10)count++;else if(simType==='candy'&&count>1)count--;else{document.getElementById('simFeedback').textContent='Batas hitungan sudah tercapai!';return}updateSim();document.getElementById('simFeedback').textContent='Bagus! Sekarang ada '+count+'.';speak(names[count-1])}
+function speakCount(){speak(names[count-1])}
+function critical(ans){let el=document.getElementById('criticalFeedback');if(ans==='maju'){el.textContent='Hebat! Benar. 5, 6, 7. Sekarang ada 7 anak.';speak('Lima, enam, tujuh. Ada tujuh anak.')}else{el.textContent='Coba lagi. Jika anak bertambah, jumlahnya dihitung maju.'}}
+const questions=[
+{type:'choice',prompt:'🎈 Ani mempunyai 3 balon. Ia mendapat 2 balon lagi. Berapa jumlah balon Ani?',opts:['4','5','6'],answer:'5',why:'3, 4, 5. Jumlah balon Ani ada 5.'},
+{type:'choice',prompt:'🍬 Lengkapi hitung mundur: 5 → 4 → ? → 2 → 1',opts:['3','4','5'],answer:'3',why:'Benar! Setelah 4 adalah 3.'},
+{type:'choice',prompt:'🚀 Urutan hitung mundur yang benar adalah...',opts:['1, 2, 3, 4, 5','5, 4, 3, 2, 1','2, 3, 4, 5, 6'],answer:'5, 4, 3, 2, 1',why:'Hebat! Hitung mundur bergerak dari angka besar ke kecil.'}
+];
+function startQuiz(){question=0;correct=0;answered=false;go('kuis');showQuestion()}
+function showQuestion(){answered=false;let q=questions[question];document.getElementById('qLabel').textContent='SOAL '+(question+1)+' DARI 3';document.getElementById('liveScore').textContent=correct* Math.round(100/3);document.getElementById('progressBar').style.width=(question/3*100)+'%';document.getElementById('quizFeedback').textContent='';document.getElementById('nextBtn').classList.add('hidden');let area=document.getElementById('questionArea');area.innerHTML='<h3>'+q.prompt+'</h3><div class="choices">'+q.opts.map(o=>'<button class="light answer">'+o+'</button>').join('')+'</div>';area.querySelectorAll('.answer').forEach(b=>b.onclick=()=>answerQuestion(b.textContent))}
+function answerQuestion(a){if(answered)return;answered=true;let q=questions[question],ok=a===q.answer;if(ok)correct++;document.getElementById('quizFeedback').textContent=ok?'🌟 Benar! '+q.why:'Belum tepat. '+q.why;document.getElementById('liveScore').textContent=Math.round(correct/3*100);document.querySelectorAll('.answer').forEach(b=>{b.disabled=true;if(b.textContent===q.answer)b.style.background='#bdecc9';else if(b.textContent===a)b.style.background='#ffd1dc'});document.getElementById('nextBtn').classList.remove('hidden');speak(ok?'Hebat, jawaban benar!':q.why)}
+function nextQuestion(){question++;if(question<3)showQuestion();else showResult()}
+function showResult(){let score=Math.round(correct/3*100);document.getElementById('progressBar').style.width='100%';document.getElementById('finalScore').textContent=score;document.getElementById('resultText').textContent=score>=86?'Sangat Baik! 🌟':score>=76?'Baik! 👏':score>=60?'Cukup! 💪':'Ayo Berlatih Lagi!';document.getElementById('resultDetail').textContent='Kamu menjawab '+correct+' dari 3 soal dengan benar.';try{localStorage.setItem('mpi_kodeoha_last_score',String(score));localStorage.setItem('mpi_kodeoha_best_score',String(Math.max(score,Number(localStorage.getItem('mpi_kodeoha_best_score')||0))))}catch(e){}go('hasil')}
+resetSim();
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => console.log('Service worker belum aktif:', err));
+  });
+}
+</script>
+</body></html>

@@ -1,0 +1,20 @@
+{
+  "name": "Petualangan Angka 1–10 | SD Negeri 8 Kodeoha",
+  "short_name": "Petualangan Angka",
+  "description": "MPI Matematika Kelas I: hitung maju dan hitung mundur 1 sampai 10.",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#dff2ff",
+  "theme_color": "#1769aa",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
